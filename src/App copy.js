@@ -6,10 +6,43 @@ function App(){
 
   const [veri,setVeri]=useState(data);
 
+  
+  
+
+
+
+function rastgeleSayi(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); 
+}
+
+const karistir=rastgeleSayi(1,4);
+
+const supriser=rastgeleSayi(0,(veri.length-1));
+
+const matmazel=()=>{
+ return veri.filter((item)=>{
+    return item.id===karistir; }).map((item)=><p key={item.id}>{item.name}{item.text}</p>)
+}
+
+const [kerim,kerimullah]=useState(null);
+
+
+
+// function arttir(a){
+// return a++;
+// }
+// function azalt(a){
+//   return a--;
+// }
+
+// if(a<veri.length){
+//   return a++;
+// }
 const [sayi,setSayi]=useState(0);
 
-//console.log(veri.length);
-
+console.log(veri.length);
 function right(deger){
       if(deger<(veri.length)-1){
         return deger+1;
@@ -26,40 +59,9 @@ function left(deger){
   }
 }
 
-console.log("sayi",sayi);
 
 
-
-//BURAYA BİR CHECKER SAYİ ARTI 1 OLUNCA LENGTHİ GEÇMESİN BİR DE COPY Yİ TEKRAR KOPYALAYABİLİRSİN BURAYA 
-
-//const supriser=rastgeleSayi(0,(veri.length-1));
-
-const supriser=()=>{
-  function rastgeleSayi(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); 
-  }
-
-  const mahmut=rastgeleSayi(0,(veri.length-1));
-  if(mahmut===sayi){
-    return sayi+1;
-  }
-
- return mahmut;
-}
-
-
-
-console.log("supriser",supriser);
-console.log("sayi supriser sonrasi",sayi);
-// if(supriser===sayi){
-//   return sayi+1;
-// }
-
-
-
-
+console.log(sayi);
 
 
 
@@ -77,12 +79,15 @@ console.log("sayi supriser sonrasi",sayi);
      <p style={{color:"red"}}>{veri[sayi].name}</p>
 
      <button onClick={()=>{setSayi(right)}}>ileri</button>
-     <button onClick={()=>{setSayi(supriser())}}>bana süpriz yap</button>
+     <button onClick={()=>{setSayi(supriser)}}>bana süpriz yap</button>
    
    
     </div>
 
-
+    <div>
+     "ayrı kerim" {kerim}
+      <button onClick={()=>{kerimullah(matmazel)}}>haydi bastır</button>
+    </div>
 
 
  

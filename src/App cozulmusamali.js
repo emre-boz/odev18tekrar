@@ -28,25 +28,18 @@ function left(deger){
 
 console.log("sayi",sayi);
 
-
+function rastgeleSayi(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); 
+}
 
 //BURAYA BİR CHECKER SAYİ ARTI 1 OLUNCA LENGTHİ GEÇMESİN BİR DE COPY Yİ TEKRAR KOPYALAYABİLİRSİN BURAYA 
 
 //const supriser=rastgeleSayi(0,(veri.length-1));
 
 const supriser=()=>{
-  function rastgeleSayi(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); 
-  }
-
-  const mahmut=rastgeleSayi(0,(veri.length-1));
-  if(mahmut===sayi){
-    return sayi+1;
-  }
-
- return mahmut;
+ return rastgeleSayi(0,(veri.length));
 }
 
 
