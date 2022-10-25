@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Review from "./Review";
 import reviews from "./supriseMeData";
 
 function App(){
@@ -75,12 +76,15 @@ console.log("sayi supriser sonrasi",sayi);
      <button onClick={()=>{setSayi(left)}}>geri</button> 
      {veri.length}
      <p style={{color:"red"}}>{veri[sayi].name}</p>
+     <p style={{color:"red"}}>{veri[sayi].job}</p>
 
      <button onClick={()=>{setSayi(right)}}>ileri</button>
      <button onClick={()=>{setSayi(supriser())}}>bana süpriz yap</button>
    
    
     </div>
+
+    <Review veri={veri} />
 
 
 
