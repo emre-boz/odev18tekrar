@@ -5,7 +5,7 @@ function App(){
 
 
 const [veriler,setVeri]=useState(questions);
-
+const [goster,setGoster]=useState(false,[]);
 
 
 
@@ -14,23 +14,20 @@ const [veriler,setVeri]=useState(questions);
 //     return <p>{item.info}</p>
 //   }
 // }
-
-
-
+console.log("ilk baslangic",goster);
 function listeList(delir){ 
-
+  setGoster(!goster);
+  console.log("ilk değişiklik",goster);
   const yeniListe= veriler.map((item) => {
     if (item.id === delir.id) {
-      return { ...item, gostert:!item.gostert };
+      return { ...item, gostert:goster };
     } else {
       return item;
     }
   });
   setVeri(yeniListe);
 }
-
-
-
+console.log("after fonk",goster);
 
 
 return (
@@ -40,7 +37,7 @@ return (
     {veriler.map((item)=><div key={item.id}>
      <p>{item.title}</p>
      <button onClick={()=>listeList(item)}>cevup</button>
-    
+     {/* <p>{veriler[0].info}</p> */}
      <p>{item.gostert?`${item.info}`:""}</p>
     
      </div>)}
