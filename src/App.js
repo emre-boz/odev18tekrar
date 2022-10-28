@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import questions from "./dataSorular";
-import{AiOutlineMinus,AiOutlinePlus} from 'react-icons/ai';
+import Soru from "./Soru";
 function App(){
 
 
 const [veriler,setVeri]=useState(questions);
 
-const [gosterinho,setGosterinho]=useState(false);
+
 
 
 
@@ -16,22 +16,9 @@ const [gosterinho,setGosterinho]=useState(false);
   return (
     <>
     <h1>ben appdullah size nasıl yardımcı olabilirim</h1>
-    {veriler.map((item)=><div key={item.id}>
-     <p>{item.title}</p>
-     
-     <button onClick={()=>setGosterinho(!gosterinho)}>
-      {gosterinho?<AiOutlineMinus/>:<AiOutlinePlus/>}
-     </button>
+    {veriler.map((item)=><Soru key={item.id} item={item} />)}
+    
 
-
-
-     {gosterinho&&<p>{item.info}</p>}
-     
- 
-     
-
-
-     </div>)}
     </>
   )
 }
