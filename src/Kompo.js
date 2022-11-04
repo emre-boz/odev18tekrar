@@ -1,7 +1,12 @@
-function Kompo({item,goster}){
-    return(<>
+import { useState } from "react";
+
+function Kompo({item,moreno}){
+    const [goster,setGoster]=useState(false);
     
-    <p>{goster?`${item.duties}`:""}</p>
+    return(<>
+    <button onClick={()=>setGoster(!goster)}>{item.company}</button>
+    
+    
     </>)
 }
 
